@@ -12,7 +12,7 @@ Notebooks and datasets to accompany the textbook "Graph Mining".
 
 * GitHubDeveloppers: data is available at https://snap.stanford.edu/data/github-social.html
 The source reference is:
-`
+```
 @misc{rozemberczki2019multiscale,    
        title = {Multi-scale Attributed Node Embedding},   
        author = {Benedek Rozemberczki and Carl Allen and Rik Sarkar},   
@@ -21,6 +21,6 @@ The source reference is:
        archivePrefix = {arXiv},  
        primaryClass = {cs.LG}   
 }
-`
+```
 which is part of project: https://github.com/benedekrozemberczki/MUSAE
 
