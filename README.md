@@ -26,10 +26,7 @@ which is part of project: https://github.com/benedekrozemberczki/MUSAE
 
 * Europe power grid network data is available at: https://zenodo.org/record/47317#.XzwNDi0ZNhF
 
-
-
-
-* NCI1 and NCI109 datasecan be downloaded from https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets
+* NCI1 and NCI109 datasets can be downloaded from https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets
 The source reference is: N. Wale and G. Karypis. Comparison of descriptor spaces for chemical compound retrieval and 
 classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
@@ -37,7 +34,7 @@ classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
 ## References -- code
 
-* most exaample use python-igraph with is available from: https://igraph.org/python/
+* most examples use python-igraph with is available from: https://igraph.org/python/
 
 * ensemble clustering is available at: https://pypi.org/project/partition-igraph/
 
