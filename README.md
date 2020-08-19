@@ -24,7 +24,10 @@ The source reference is:
 ```
 which is part of project: https://github.com/benedekrozemberczki/MUSAE
 
-* Europe power grid netwoek data is available at: https://zenodo.org/record/47317#.XzwNDi0ZNhF
+* Europe power grid network data is available at: https://zenodo.org/record/47317#.XzwNDi0ZNhF
+
+
+
 
 * NCI1 and NCI109 datasecan be downloaded from https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets
 The source reference is: N. Wale and G. Karypis. Comparison of descriptor spaces for chemical compound retrieval and 
