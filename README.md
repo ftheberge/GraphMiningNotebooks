@@ -2,6 +2,28 @@
 
 Notebooks and datasets to accompany the textbook "Graph Mining".
 
+## Software environment
+
+The notebooks were created under the following conda environment:
+
+```
+conda create --name graphmining python=3.7 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet
+
+conda activate graphmining
+
+pip install python-igraph
+pip install plfit
+pip install partition-igraph
+pip install umap-learn
+pip install graphrole
+```
+
+Other software used:
+
+* Chapter 5 notebook: install the julia language from https://julialang.org and the ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
+* Chapter 6 notebook: install node2vec from https://snap.stanford.edu/node2vec/ and GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings (more details in the notebook)
+* Extra examples: install the graph2vec code from https://github.com/benedekrozemberczki/graph2vec
+
 ## References - datasets
 
 * ABCD dataset was generated using the Julia code found at: https://github.com/bkamins/ABCDGraphGenerator.jl
