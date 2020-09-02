@@ -70,5 +70,5 @@ classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
 * UMAP code is available at: https://pypi.org/project/umap-learn/
 
-* Our graph embedding functions for igraph are based on the networkx code found in the GEM package: https://github.com/palash1992/GEM
+* Some graph embedding functions for igraph we wrote are based on the networkx code found in the GEM package: https://github.com/palash1992/GEM
 
