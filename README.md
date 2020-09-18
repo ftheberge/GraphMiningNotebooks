@@ -20,13 +20,13 @@ pip install graphrole
 
 Other software used:
 
-* Chapter 5 notebook: 
+Chapter 5 notebook: 
  * install the julia language from https://julialang.org
  * ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
-* Chapter 6 notebook: 
+Chapter 6 notebook: 
  * install node2vec from https://snap.stanford.edu/node2vec/
  * GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings (more details in the notebook)
-* Extra examples: 
+Extra examples: 
  * install the graph2vec code from https://github.com/benedekrozemberczki/graph2vec
  * LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
  * overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
