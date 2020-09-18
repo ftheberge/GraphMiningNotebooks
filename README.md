@@ -20,9 +20,17 @@ pip install graphrole
 
 Other software used:
 
-* Chapter 5 notebook: install the julia language from https://julialang.org and the ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
-* Chapter 6 notebook: install node2vec from https://snap.stanford.edu/node2vec/ and GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings (more details in the notebook)
-* Extra examples: install the graph2vec code from https://github.com/benedekrozemberczki/graph2vec
+* Chapter 5 notebook: 
+** install the julia language from https://julialang.org
+** ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
+* Chapter 6 notebook: 
+** install node2vec from https://snap.stanford.edu/node2vec/
+** GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings (more details in the notebook)
+* Extra examples: 
+** install the graph2vec code from https://github.com/benedekrozemberczki/graph2vec
+** LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
+** overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
+** pip install omega-index-py3
 
 ## References - datasets
 
@@ -46,13 +54,16 @@ The source reference is:
 ```
 which is part of project: https://github.com/benedekrozemberczki/MUSAE
 
-* Europe power grid network data is available at: https://zenodo.org/record/47317#.XzwNDi0ZNhF
+* Power grid network data is available at: https://zenodo.org/record/47317#.XzwNDi0ZNhF
 
 * NCI1 and NCI109 datasets can be downloaded from https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets
 The source reference is: N. Wale and G. Karypis. Comparison of descriptor spaces for chemical compound retrieval and 
 classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
 * The Zachary dataset is available within igraph. The source reference is: Zachary, W. W. (1977). "An Information Flow Model for Conflict and Fission in Small Groups". Journal of Anthropological Research. 33 (4): 452–473. JSTOR 3629752.
+
+* Words data build from: http://w3.usf.edu/FreeAssociation/
+Reference: Nelson, D. L., McEvoy, C. L., & Schreiber, T. A. (1998). The University of South Florida word association, rhyme, and word fragment norms. http://www.usf.edu/FreeAssociation/.
 
 ## References -- code
 
@@ -72,3 +83,9 @@ classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
 * Some graph embedding functions for igraph we wrote are based on the networkx code found in the GEM package: https://github.com/palash1992/GEM
 
+* omega measure: https://pypi.org/project/omega-index-py3/
+
+* LFR with overlapping communities: https://sites.google.com/site/andrealancichinetti/files/
+
+* Normalized Mutual Information (NMI) measure for sets of overlapping clusters: https://github.com/aaronmcdaid/Overlapping-NMI
+Reference: Normalized Mutual Information to evaluate overlapping community finding algorithms" by Aaron F. McDaid, Derek Greene, Neil Hurley http://arxiv.org/abs/1110.2515
