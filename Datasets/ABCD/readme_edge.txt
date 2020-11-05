@@ -1,10 +1,10 @@
 # Common parameters
 
-n = "1500"                    # number of vertices in graph
-t1 = "2"                      # power-law exponent for degree distribution
-d_min = "1"                   # minimum degree
-d_max = "50"                  # maximum degree
-t2 = "2"                      # power-law exponent for cluster size distribution
+n = "2000"                    # number of vertices in graph
+t1 = "2.5"                    # power-law exponent for degree distribution
+d_min = "2"                   # minimum degree
+d_max = "100"                 # maximum degree
+t2 = "2.5"                    # power-law exponent for cluster size distribution
 c_min = "50"                  # minimum cluster size
 c_max = "1000"                # maximum cluster size
 isCL = "false"                # if "false" use configuration model, if "true" use Chung-Lu
