@@ -1,6 +1,6 @@
 # Graph Mining Notebooks
 
-Notebooks and datasets to accompany the textbook "Graph Mining".
+Notebooks and datasets to accompany the textbook "Mining Networks" (working title).
 
 ## Software environment
 
