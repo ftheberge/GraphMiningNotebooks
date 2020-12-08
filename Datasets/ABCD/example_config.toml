@@ -1,0 +1,19 @@
+seed = "42"                   # RNG seed, use "" for no seeding
+n = "2000"                    # number of vertices in graph
+t1 = "2.5"                    # power-law exponent for degree distribution
+d_min = "2"                   # minimum degree
+d_max = "100"                 # maximum degree
+d_max_iter = "1000"           # maximum number of iterations for sampling degrees
+t2 = "2.5"                    # power-law exponent for cluster size distribution
+c_min = "50"                  # minimum cluster size
+c_max = "1000"                # maximum cluster size
+c_max_iter = "1000"           # maximum number of iterations for sampling cluster sizes
+# Exactly one of xi and mu must be passed as Float64. Also if xi is provided islocal must be set to false or omitted.
+xi = "1"                      # fraction of edges to fall in background graph
+#mu = "0.2"                   # mixing parameter
+islocal = "false"             # if "true" mixing parameter is restricted to local cluster, otherwise it is global
+isCL = "false"                # if "false" use configuration model, if "true" use Chung-Lu
+degreefile = "deg.dat"        # name of file do generate that contains vertex degrees
+communitysizesfile = "cs.dat" # name of file do generate that contains community sizes
+communityfile = "com.dat"     # name of file do generate that contains assignments of vertices to communities
+networkfile = "edge1.dat"     # name of file do generate that contains edges of the generated graph
