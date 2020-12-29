@@ -93,9 +93,9 @@ int main(int argc, char *argv[]) {
   double f,lo,hi,best_div,best_alpha,alpha,diff,move,sm;
   FILE *fp, *fpa;
   int **edge, *comm, *degree;
-  double **embed,*P,*D,*T,*S, *vect_C, *vect_B, *vect_p, *vect_q, *vect_m;
+  double **embed,*P,*D,*T,*S, *vect_C, *vect_B, *vect_p, *vect_q, *vect_m, *Q;
   char str[256], *fn_edges, *fn_comm, *fn_embed;
-  int opt, verbose=0, *vect_I;  
+  int opt, verbose=0, *vect_I, entropy=0;  
   double epsilon=0.1, delta=0.001, AlphaMax=10.0, AlphaStep=0.25; // default parameter values
   
   // randomized start
@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
 #endif
 
   // read in edgelist and communities filenames
-  while ((opt = getopt(argc, argv, "g:c:e:d:va:s:")) != -1) {
+  while ((opt = getopt(argc, argv, "g:c:e:d:vEa:s:")) != -1) {
     switch (opt) {
     case 'a':
       AlphaMax = atof(optarg);
@@ -129,8 +129,11 @@ int main(int argc, char *argv[]) {
     case 'v':
       verbose=1;
       break;
+    case 'E':
+      entropy=1;
+      break;
     default: /* '?' */
-      printf("Usage: %s -g graph_edgelist -c communities -e embedding [-a alpha_max -s epsilon_step -d delta -v]\n\n",argv[0]);
+      printf("Usage: %s -g graph_edgelist -c communities -e embedding [-a alpha_max -s epsilon_step -d delta -v -E]\n\n",argv[0]);
       exit(EXIT_FAILURE);
     }
   }
@@ -356,6 +359,101 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  printf("Divergence: %e\n",best_div);
+
+  if(entropy) {
+    // ************************************************************************
+    // REPEAT 3.0 with best_alpha  
+    alpha = best_alpha;
+    
+    // 3.1 compute Euclidean distance vector D[] given embed[][] and alpha
+    lo = 10000; hi=0;
+    for(i=0;i<(n-1);i++) {
+      for(j=i+1;j<n;j++) {	
+	f = dist(i,j,dim,embed); 
+	if(f<lo) lo=f;
+	if(f>hi) hi=f;
+	k = n*i-i*(i+1)/2+j-i-1;
+	D[k] = f; 
+      }
+    }
+    // ... and apply kernel
+    for(i=0;i<(n-1);i++) {
+      for(j=i+1;j<n;j++) {	
+	k = n*i-i*(i+1)/2+j-i-1;
+	D[k] = (D[k]-lo)/(hi-lo); // normalize to [0,1]
+	D[k] = pow(1-D[k],alpha); // transform w.r.t. alpha
+      }
+    }
+    
+    
+    // 3.2 Learn GCL model numerically
+    
+    // 3.2.1 LOOP: compute T[] given: degree[] D[] epsilon delta
+    for(i=0;i<n;i++) T[i]=1.0;
+    diff = 1.0;
+    lo = 0;
+    while(diff > delta) { // stopping criterion
+      for(i=0;i<n;i++) S[i]=0.0;
+      k = 0;
+      for(i=0;i<(n-1);i++) {
+	for(j=i+1;j<n;j++) {
+	  S[i] += (T[i]*T[j]*D[k]);
+	  S[j] += (T[j]*T[i]*D[k]);
+	  k++;
+	}
+      }
+      f = 0.0;
+      for(i=0;i<n;i++) {
+	move = epsilon*T[i]*(degree[i]/S[i]-1.0); 
+	T[i]+=move;
+	f = max(f,fabs(degree[i]-S[i])); // convergence w.r.t. degrees
+      }
+      diff = f;
+      lo++;
+    }
+    
+    // 3.2.2 Compute probas P[]
+    for(i=0;i<(n-1);i++) {
+      for(j=i+1;j<n;j++) {
+	k = n*i-i*(i+1)/2+j-i-1;
+	P[k] = (T[i]*T[j]*D[k]);
+      }
+    }
+    
+    // compute comm dist for each node in turn + entropy
+    
+    fp = fopen("_entropy","w");
+    if(fp==NULL) {
+      printf("Failed to open _entropy\n");
+      exit(-1);
+    }
+    
+    for(i=0;i<n;i++) {
+      Q = (double *)malloc(n_parts*sizeof(double));
+      for(j=0;j<n_parts;j++) Q[j]=0;
+      for(j=0;j<i;j++)
+	Q[comm[j]] += myProb(P,n,j,i);
+      for(j=i+1;j<n;j++)
+	Q[comm[j]] += myProb(P,n,i,j);
+      fprintf(fp,"%d",i);
+      sm = 0;
+      for(j=0;j<n_parts;j++)
+	sm += Q[j];
+      for(j=0;j<n_parts;j++)
+	Q[j] /= sm;
+      sm = 0;
+      for(j=0;j<n_parts;j++)
+	sm = sm - Q[j]*log(Q[j]);
+      fprintf(fp,",%f",sm);
+      for(j=0;j<n_parts;j++)
+	fprintf(fp,",%f",Q[j]);
+      fprintf(fp,"\n");
+    }
+    fclose(fp);
+    free(Q);
+  }
+  
   // 4. clean all and return final score to stdout
   for(i=0;i<n;i++) free(embed[i]);
   free(embed);
@@ -369,6 +467,6 @@ int main(int argc, char *argv[]) {
   if(verbose) {
       printf("Best value for alpha: %lf\n",best_alpha);
   }
-  printf("Divergence: %e\n",best_div);
+
   return(0);
 }
