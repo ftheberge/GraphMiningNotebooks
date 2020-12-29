@@ -1,0 +1,31 @@
+Dataset -- American College Football Graph
+
+[REF]: "Community structure in social and biological networks", M. Girvan and M. E. J. Newman PNAS June 11, 2002 99 (12) 7821-7826; https://doi.org/10.1073/pnas.122653799
+
+Teams are part of 12 conferences (the 'communities'):
+0 = Atlantic Coast
+1 = Big East
+2 = Big Ten
+3 = Big Twelve
+4 = Conference USA
+5 = Independents
+6 = Mid-American
+7 = Mountain West
+8 = Pacific Ten
+9 = Southeastern
+10 = Sun Belt
+11 = Western Athletic
+
+14 teams out of 115 appear as anomalies as can be seen in Figure 5 of [REF], namely:
+
+5 teams in #5 conference (Independent) play teams in other conferences (green triangles)
+7 teams in #10 conference (Sun Belt) are broken in 2 clumps (pink triangles)
+2 teams from #11 conference play mainly with #10 conference (red triangles)
+
+Here, we try to recover those anomalous teams by running several embeddings (we use node2vec):
+
+for each embedding:
+compute divergence using our framework
+also compute entropy of b-vector for each node (probability distribution of edges w.r.t. every community in the geometric Chung-Lu model)
+plot entropy vs divergence
+for some good/bad embedding, boxplot entropy of anomalous vs other nodes
