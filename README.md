@@ -34,7 +34,8 @@ Complementary material:
  * LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
  * overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
  * pip install omega-index-py3
-
+ * conda install -c conda-forge folium
+ 
 ## References - datasets
 
 * ABCD dataset was generated using the Julia code found at: https://github.com/bkamins/ABCDGraphGenerator.jl
@@ -67,6 +68,12 @@ classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
 * Words data build from: http://w3.usf.edu/FreeAssociation/
 Reference: Nelson, D. L., McEvoy, C. L., & Schreiber, T. A. (1998). The University of South Florida word association, rhyme, and word fragment norms. http://www.usf.edu/FreeAssociation/.
+
+* Game of Thrones dataset built from: https://github.com/jeffreylancaster/game-of-thrones
+
+* The source graph for the road network example was prepared using the map taken from: https://github.com/pszufe/OpenStreetMapX.jl/blob/master/test/data/reno_east3.osm
+
+
 
 ## References -- code
 
