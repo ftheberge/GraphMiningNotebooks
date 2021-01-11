@@ -16,6 +16,7 @@ pip install plfit
 pip install partition-igraph
 pip install umap-learn
 pip install graphrole
+pip install hypernetx
 ```
 
 Other software used:
