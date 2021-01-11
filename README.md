@@ -92,3 +92,6 @@ Reference: Nelson, D. L., McEvoy, C. L., & Schreiber, T. A. (1998). The Universi
 
 * Normalized Mutual Information (NMI) measure for sets of overlapping clusters: https://github.com/aaronmcdaid/Overlapping-NMI
 Reference: Normalized Mutual Information to evaluate overlapping community finding algorithms" by Aaron F. McDaid, Derek Greene, Neil Hurley http://arxiv.org/abs/1110.2515
+
+ * HyperNetX (HNX) can be found at: https://github.com/pnnl/HyperNetX including several good tutorial notebooks.
+ 
