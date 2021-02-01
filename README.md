@@ -4,7 +4,7 @@ Notebooks and datasets to accompany the textbook "Mining Networks" (working titl
 
 ## Software environment
 
-The notebooks were created under the following conda environment:
+The Python Notebooks were created under the following conda environment:
 
 ```
 conda create --name graphmining python=3.7 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet
