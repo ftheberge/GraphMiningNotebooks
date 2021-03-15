@@ -414,12 +414,15 @@ int main(int argc, char *argv[]) {
     }
     
     // 3.2.2 Compute probas P[]
+    fp = fopen("_probas","w");
     for(i=0;i<(n-1);i++) {
       for(j=i+1;j<n;j++) {
 	k = n*i-i*(i+1)/2+j-i-1;
 	P[k] = (T[i]*T[j]*D[k]);
+	fprintf(fp,"%d %d %f\n",i,j,P[k]);
       }
     }
+    fclose(fp);
     
     // compute comm dist for each node in turn + entropy
     
