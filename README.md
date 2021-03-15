@@ -15,7 +15,7 @@ pip install python-igraph==0.8.2
 pip install plfit
 pip install partition-igraph
 pip install umap-learn
-pip install graphrole
+pip install --no-dependencies graphrole
 pip install hypernetx
 ```
 
