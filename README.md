@@ -1,6 +1,6 @@
 # Graph Mining Notebooks
 
-Notebooks and datasets to accompany the textbook "Mining Complex Networks" by B. Kaminski, P. Pralat and F. Theberge.
+Notebooks and datasets to accompany the textbook "Mining Complex Networks" by B. Kaminski, P. Pralat and F. Théberge.
 
 ## Software environment
 
