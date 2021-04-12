@@ -26,7 +26,7 @@ Chapter 5 notebook:
  * ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
 
 Chapter 6 notebook: 
- * install node2vec from https://snap.stanford.edu/node2vec/
+ * install node2vec from SNAP, see: https://snap.stanford.edu/node2vec/
  * GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings which is included in this repo (more details in the notebook)
 
 Complementary material: 
