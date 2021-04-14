@@ -38,44 +38,30 @@ Complementary material:
  
 ## References - datasets
 
-* ABCD dataset was generated using the Julia code found at: https://github.com/bkamins/ABCDGraphGenerator.jl
+* **ABCD** dataset was generated using the Julia code found at: https://github.com/bkamins/ABCDGraphGenerator.jl
 
-* Actors dataset is from the accompanying material to the book: "Complex Networks: Principles, Methods and Applications", V. Latora, V. Nicosia, G. Russo, Cambridge University Press (2017). ISBN: 9781107103184 The data can be downloaded from: http://www.complex-networks.net
+* **Actors** dataset is from the accompanying material to the book: "Complex Networks: Principles, Methods and Applications", V. Latora, V. Nicosia, G. Russo, Cambridge University Press (2017). ISBN: 9781107103184 The data can be downloaded from: http://www.complex-networks.net. It was built from the Internet Movie Database (IMDb, www.imdb.com) and was first studied in: D.J. Watts and S.H. Strogatz, "Collective dynamics of 'small-world' networks", Nature 393 (1998), 440-442.
 
-* Airport dataset is available at: https://www.kaggle.com/flashgordon/usa-airport-dataset#Airports2.csv
+* **Airport** dataset is available at: https://www.kaggle.com/flashgordon/usa-airport-dataset#Airports2.csv which is part of the Kaggle Public Datasets: https://www.kaggle.com/datasets
 
-* GitHubDeveloppers: data is available at https://snap.stanford.edu/data/github-social.html
-The source reference is:
-```
-@misc{rozemberczki2019multiscale,    
-       title = {Multi-scale Attributed Node Embedding},   
-       author = {Benedek Rozemberczki and Carl Allen and Rik Sarkar},   
-       year = {2019},   
-       eprint = {1909.13021},  
-       archivePrefix = {arXiv},  
-       primaryClass = {cs.LG}   
-}
-```
-which is part of project: https://github.com/benedekrozemberczki/MUSAE
+* **Football** dataset: is available from http://www-personal.umich.edu/~mejn/netdata/. The source reference is: M. Girvan and M. E. J. Newman,
+"Community structure in social and biological networks", Proc. Natl. Acad. Sci. USA 99, 7821-7826 (2002).
 
-* Power grid network data is available at: https://zenodo.org/record/47317#.XzwNDi0ZNhF
+* **GitHub Developpers** data is available at https://snap.stanford.edu/data/github-social.html. The source reference is: "Multi-scale Attributed Node Embedding", Benedek Rozemberczki, Carl Allen, and Rik Sarkar, arXi (2019). https://arxiv.org/abs/1909.13021. This is part of project: https://github.com/benedekrozemberczki/MUSAE. SNAP source reference is: Jure Leskovec and Andrej Krevl, "SNAP Datasets: Stanford Large Network Dataset Collection", http://snap.stanford.edu/data, 2014.
+ 
+* **Game of Thrones** dataset is built from: Jeffrey Lancaster GitHub repository: https://github.com/jeffreylancaster/game-of-thrones
 
-* NCI1 and NCI109 datasets can be downloaded from https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets
-The source reference is: N. Wale and G. Karypis. Comparison of descriptor spaces for chemical compound retrieval and 
-classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
+* **Grid** network data is available at http://doi.org/10.5281/zenodo.47317. The source reference is: Wiegmans, B. (2016). GridKit: European and North-American extracts [Data set]. Zenodo. http://doi.org/10.5281/zenodo.47317.
 
-* The Zachary dataset is available within igraph. The source reference is: Zachary, W. W. (1977). "An Information Flow Model for Conflict and Fission in Small Groups". Journal of Anthropological Research. 33 (4): 452–473. JSTOR 3629752.
+* **NCI1 and NCI109** datasets can be downloaded from https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets. Website reference: Kristian Kersting, Nils M. Kriege, Christopher Morris, Petra Mutzel and Marion Neumann, "Benchmark Data Sets for Graph Kernels", 2016. The source reference is: N. Wale and G. Karypis. Comparison of descriptor spaces for chemical compound retrieval and classification. In Proc. of ICDM, pages 678–689, Hong Kong, 2006.
 
-* Words data build from: http://w3.usf.edu/FreeAssociation/
-Reference: Nelson, D. L., McEvoy, C. L., & Schreiber, T. A. (1998). The University of South Florida word association, rhyme, and word fragment norms. http://www.usf.edu/FreeAssociation/.
+* The source graph for the **Reno** road network example was prepared using the map taken from: https://github.com/pszufe/OpenStreetMapX.jl/blob/master/test/data/reno_east3.osm
 
-* Game of Thrones dataset built from: https://github.com/jeffreylancaster/game-of-thrones
+* **Words** free-association data was built from the database: http://w3.usf.edu/FreeAssociation/ Reference: Nelson, D. L., McEvoy, C. L., & Schreiber, T. A. (1998). The University of South Florida word association, rhyme, and word fragment norms. Details for using this database are provided in: Douglas L. Nelson, Cathy L. McEvoy and Thomas A. Schreiber, "The University of South Florida free association, rhyme, and word fragment norms", Behavior Research Methods, Instruments, & Computers 2004, 36 (3), 402–407 https://link.springer.com/content/pdf/10.3758/BF03195588.pdf
 
-* The source graph for the road network example was prepared using the map taken from: https://github.com/pszufe/OpenStreetMapX.jl/blob/master/test/data/reno_east3.osm
+* **Zachary** dataset is available within *igraph*. The source reference is: Zachary, W. W. (1977). "An Information Flow Model for Conflict and Fission in Small Groups". Journal of Anthropological Research. 33 (4): 452–473. JSTOR 3629752.
 
-
-
-## References -- code
+## Links -- code
 
 * most examples use python-igraph with is available from: https://igraph.org/python/
 
