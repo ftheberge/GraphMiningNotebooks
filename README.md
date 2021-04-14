@@ -47,7 +47,7 @@ Complementary material:
 * **Football** dataset: is available from http://www-personal.umich.edu/~mejn/netdata/. The source reference is: M. Girvan and M. E. J. Newman,
 "Community structure in social and biological networks", Proc. Natl. Acad. Sci. USA 99, 7821-7826 (2002).
 
-* **GitHub Developpers** data is available at https://snap.stanford.edu/data/github-social.html. The source reference is: "Multi-scale Attributed Node Embedding", Benedek Rozemberczki, Carl Allen, and Rik Sarkar, arXi (2019). https://arxiv.org/abs/1909.13021. This is part of project: https://github.com/benedekrozemberczki/MUSAE. SNAP source reference is: Jure Leskovec and Andrej Krevl, "SNAP Datasets: Stanford Large Network Dataset Collection", http://snap.stanford.edu/data, 2014.
+* **GitHub Developpers** data is available at https://snap.stanford.edu/data/github-social.html. The source reference is: "Multi-scale Attributed Node Embedding", Benedek Rozemberczki, Carl Allen, and Rik Sarkar, arXiv (2019). https://arxiv.org/abs/1909.13021. This is part of project: https://github.com/benedekrozemberczki/MUSAE. SNAP source reference is: Jure Leskovec and Andrej Krevl, "SNAP Datasets: Stanford Large Network Dataset Collection", http://snap.stanford.edu/data, 2014.
  
 * **Game of Thrones** dataset is built from: Jeffrey Lancaster GitHub repository: https://github.com/jeffreylancaster/game-of-thrones
 
