@@ -65,9 +65,11 @@ Complementary material:
 
 * most examples use python-igraph which is available from: https://igraph.org/python/
 
-* ensemble clustering is available at: https://pypi.org/project/partition-igraph/ Ref: Valérie Poulin and François Théberge, "Ensemble clustering for graphs: comparisons and applications", Appl Netw Sci 4, 51 (2019). https://doi.org/10.1007/s41109-019-0162-z
+* ensemble clustering is available at: https://pypi.org/project/partition-igraph/  
+Ref: Valérie Poulin and François Théberge, "Ensemble clustering for graphs: comparisons and applications", Appl Netw Sci 4, 51 (2019). https://doi.org/10.1007/s41109-019-0162-z
 
-* graph2vec code can be obtained from: https://github.com/benedekrozemberczki/graph2vec Ref: graph2vec: Learning distributed representations of graphs. Narayanan, Annamalai and Chandramohan, Mahinthan and Venkatesan, Rajasekar and Chen, Lihui and Liu, Yang MLG 2017, 13th International Workshop on Mining and Learning with Graphs (MLGWorkshop 2017).
+* graph2vec code can be obtained from: https://github.com/benedekrozemberczki/graph2vec   
+Ref: graph2vec: Learning distributed representations of graphs. Narayanan, Annamalai and Chandramohan, Mahinthan and Venkatesan, Rajasekar and Chen, Lihui and Liu, Yang MLG 2017, 13th International Workshop on Mining and Learning with Graphs (MLGWorkshop 2017).
 
 * node2vec is included in SNAP and can be obtained at: https://snap.stanford.edu/node2vec/ Ref: node2vec: Scalable Feature Learning for Networks. A. Grover, J. Leskovec. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD), 2016.
 
