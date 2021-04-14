@@ -65,34 +65,30 @@ Complementary material:
 
 * most examples use python-igraph which is available from: https://igraph.org/python/
 
-* ensemble clustering is available at: https://pypi.org/project/partition-igraph/
-Valérie Poulin and François Théberge, "Ensemble clustering for graphs: comparisons and applications", Appl Netw Sci 4, 51 (2019). https://doi.org/10.1007/s41109-019-0162-z
+* ensemble clustering is available at: https://pypi.org/project/partition-igraph/ Ref: Valérie Poulin and François Théberge, "Ensemble clustering for graphs: comparisons and applications", Appl Netw Sci 4, 51 (2019). https://doi.org/10.1007/s41109-019-0162-z
 
-* graph2vec code can be obtained from: https://github.com/benedekrozemberczki/graph2vec
-graph2vec: Learning distributed representations of graphs. Narayanan, Annamalai and Chandramohan, Mahinthan and Venkatesan, Rajasekar and Chen, Lihui and Liu, Yang MLG 2017, 13th International Workshop on Mining and Learning with Graphs (MLGWorkshop 2017).
+* graph2vec code can be obtained from: https://github.com/benedekrozemberczki/graph2vec Ref: graph2vec: Learning distributed representations of graphs. Narayanan, Annamalai and Chandramohan, Mahinthan and Venkatesan, Rajasekar and Chen, Lihui and Liu, Yang MLG 2017, 13th International Workshop on Mining and Learning with Graphs (MLGWorkshop 2017).
 
-* node2vec is included in SNAP and can be obtained at: https://snap.stanford.edu/node2vec/
-node2vec: Scalable Feature Learning for Networks. A. Grover, J. Leskovec. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD), 2016.
+* node2vec is included in SNAP and can be obtained at: https://snap.stanford.edu/node2vec/ Ref: node2vec: Scalable Feature Learning for Networks. A. Grover, J. Leskovec. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD), 2016.
 
-* plfit code is avaialble from: https://pypi.org/project/plfit/
-A. Clauset, C.R. Shalizi, and M.E.J. Newman, "Power-law distributions in empirical data" SIAM Review 51(4), 661-703 (2009). (arXiv:0706.1062, doi:10.1137/070710111)
+* plfit code is avaialble from: https://pypi.org/project/plfit/ Ref: A. Clauset, C.R. Shalizi, and M.E.J. Newman, "Power-law distributions in empirical data" SIAM Review 51(4), 661-703 (2009). (arXiv:0706.1062, doi:10.1137/070710111)
 
-* graphrole code is available from: https://pypi.org/project/graphrole/
-Keith  Henderson, Brian  Gallagher, Lei Li, Leman Akoglu, Tina  Eliassi-Rad, Hanghang  Tong, Christos Faloutsos, It's who you know: graph mining using recursive structural features, Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining, August 2011 Pages 663–671 https://doi.org/10.1145/2020408.2020512
-Keith  Henderson, Brian  Gallagher, Tina  Eliassi-Rad, Hanghang  Tong, Sugato  Basu, Leman Akoglu, Danai  Koutra, Christos  Faloutsos, Lei Li, RolX: structural role extraction and mining in large graphs, Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining, August 2012, Pages 1231–1239 https://doi.org/10.1145/2339530.2339723
+* graphrole code is available from: https://pypi.org/project/graphrole/ 
+Ref (ReFeX): Keith  Henderson, Brian  Gallagher, Lei Li, Leman Akoglu, Tina  Eliassi-Rad, Hanghang  Tong, Christos Faloutsos, It's who you know: graph mining using recursive structural features, Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining, August 2011 Pages 663–671 https://doi.org/10.1145/2020408.2020512 
+Ref (RolX): Keith  Henderson, Brian  Gallagher, Tina  Eliassi-Rad, Hanghang  Tong, Sugato  Basu, Leman Akoglu, Danai  Koutra, Christos  Faloutsos, Lei Li, RolX: structural role extraction and mining in large graphs, Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining, August 2012, Pages 1231–1239 https://doi.org/10.1145/2339530.2339723
 
 * UMAP code is available at: https://pypi.org/project/umap-learn/
-McInnes, L., Healy, J. UMAP: uniform manifold approximation and projection for dimension reduction. Preprint at https://arxiv.org/abs/1802.03426 (2018).
+Ref: McInnes, L., Healy, J. UMAP: uniform manifold approximation and projection for dimension reduction. Preprint at https://arxiv.org/abs/1802.03426 (2018).
 
 * omega measure: https://pypi.org/project/omega-index-py3/
-Collins LM, Dent CW. Omega: A General Formulation of the Rand Index of Cluster Recovery Suitable for Non-disjoint Solutions. Multivariate Behav Res. 1988 Apr 1;23(2):231-42. doi: 10.1207/s15327906mbr2302_6. PMID: 26764947.
+Ref: Collins LM, Dent CW. Omega: A General Formulation of the Rand Index of Cluster Recovery Suitable for Non-disjoint Solutions. Multivariate Behav Res. 1988 Apr 1;23(2):231-42. doi: 10.1207/s15327906mbr2302_6. PMID: 26764947.
 
 * LFR with overlapping communities: https://sites.google.com/site/andrealancichinetti/files/
-A. Lancichinetti, S. Fortunato, Benchmarks for testing community detection algorithms on directed and weighted graphs with overlapping communities
+Ref: A. Lancichinetti, S. Fortunato, Benchmarks for testing community detection algorithms on directed and weighted graphs with overlapping communities
 Phys. Rev. E 80, 016118 (2009)
 
 * Normalized Mutual Information (NMI) measure for sets of overlapping clusters: https://github.com/aaronmcdaid/Overlapping-NMI
-Reference: Normalized Mutual Information to evaluate overlapping community finding algorithms" by Aaron F. McDaid, Derek Greene, Neil Hurley http://arxiv.org/abs/1110.2515
+Ref: Normalized Mutual Information to evaluate overlapping community finding algorithms" by Aaron F. McDaid, Derek Greene, Neil Hurley http://arxiv.org/abs/1110.2515
 
 * Some graph embedding functions for igraph we wrote are based on the networkx code found in the GEM package: https://github.com/palash1992/GEM
 
