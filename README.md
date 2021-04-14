@@ -66,6 +66,7 @@ Complementary material:
 * most examples use python-igraph with is available from: https://igraph.org/python/
 
 * ensemble clustering is available at: https://pypi.org/project/partition-igraph/
+Valérie Poulin and François Théberge, "Ensemble clustering for graphs: comparisons and applications", Appl Netw Sci 4, 51 (2019). https://doi.org/10.1007/s41109-019-0162-z
 
 * graph2vec code can be obtained from: https://github.com/benedekrozemberczki/graph2vec
 graph2vec: Learning distributed representations of graphs. Narayanan, Annamalai and Chandramohan, Mahinthan and Venkatesan, Rajasekar and Chen, Lihui and Liu, Yang MLG 2017, 13th International Workshop on Mining and Learning with Graphs (MLGWorkshop 2017).
