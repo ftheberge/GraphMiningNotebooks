@@ -77,7 +77,7 @@ Ref: graph2vec: Learning distributed representations of graphs. Narayanan, Annam
 * node2vec is included in SNAP and can be obtained at: https://snap.stanford.edu/node2vec/   
 Ref: node2vec: Scalable Feature Learning for Networks. A. Grover, J. Leskovec. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD), 2016.
 
-* plfit code is avaialble from: https://pypi.org/project/plfit/  
+* plfit code is avaialble from: https://pypi.org/project/plfit/  or https://github.com/keflavich/plfit
 Ref: A. Clauset, C.R. Shalizi, and M.E.J. Newman, "Power-law distributions in empirical data" SIAM Review 51(4), 661-703 (2009). (arXiv:0706.1062, doi:10.1137/070710111)
 
 * graphrole code is available from: https://pypi.org/project/graphrole/  
