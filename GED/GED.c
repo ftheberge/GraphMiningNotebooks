@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
   int **edge, *comm, *degree;
   double **embed,*P,*D,*T,*S, *vect_C, *vect_B, *vect_p, *vect_q, *vect_m, *Q;
   char str[256], *fn_edges, *fn_comm, *fn_embed;
-  int opt, verbose=0, *vect_I, entropy=0;  
+  int opt, verbose=0, *vect_I, entropy=0, jsd_split=0;  
   double epsilon=0.1, delta=0.001, AlphaMax=10.0, AlphaStep=0.25; // default parameter values
   
   // randomized start
@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
 #endif
 
   // read in edgelist and communities filenames
-  while ((opt = getopt(argc, argv, "g:c:e:d:vEa:s:")) != -1) {
+  while ((opt = getopt(argc, argv, "g:c:e:d:vEScd a:s:")) != -1) {
     switch (opt) {
     case 'a':
       AlphaMax = atof(optarg);
@@ -132,15 +132,18 @@ int main(int argc, char *argv[]) {
     case 'E':
       entropy=1;
       break;
+    case 'S':
+      jsd_split=1;
+      break;
     default: /* '?' */
-      printf("Usage: %s -g graph_edgelist -c communities -e embedding [-a alpha_max -s epsilon_step -d delta -v -E]\n\n",argv[0]);
+      printf("Usage: %s -g graph_edgelist -c communities -e embedding [-a alpha_max -s epsilon_step -d delta -v -E -S]\n\n",argv[0]);
       exit(EXIT_FAILURE);
     }
   }
 
   // Check min conditions
   if(fn_embed==NULL || fn_comm==NULL || fn_edges==NULL) {
-      printf("Usage: %s -g graph_edgelist -c communities -e embedding [-a alpha_max -s epsilon_step -d delta -v]\n\n",argv[0]);
+      printf("Usage: %s -g graph_edgelist -c communities -e embedding [-a alpha_max -s epsilon_step -d delta -v -E -S]\n\n",argv[0]);
     exit(EXIT_FAILURE);
   }
 
@@ -351,8 +354,10 @@ int main(int argc, char *argv[]) {
     }
 
     // 3.4 JS score -- keep best score
-    f = (JS(vect_C, vect_B, vect_I, 1, vect_len) + JS(vect_C, vect_B, vect_I, 0, vect_len))/2.0;
-    // f = JS(vect_C, vect_B, NULL, NULL, vect_len);
+    if(jsd_split)
+      f = (JS(vect_C, vect_B, vect_I, 1, vect_len) + JS(vect_C, vect_B, vect_I, 0, vect_len))/2.0;
+    else
+      f = JS(vect_C, vect_B, NULL, -1, vect_len);
     if(f < best_div) {
       best_div = f;
       best_alpha = alpha;
