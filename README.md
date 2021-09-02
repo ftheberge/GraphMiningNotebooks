@@ -33,7 +33,7 @@ Complementary material:
  * install the graph2vec code from https://github.com/benedekrozemberczki/graph2vec
  * LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
  * overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
- * pip install omega-index-py3
+ * pip install omega-index-py3==0.3
  * conda install -c conda-forge folium
  
 ## References - datasets
