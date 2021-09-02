@@ -7,7 +7,7 @@ Notebooks and datasets to accompany the textbook "Mining Complex Networks" (http
 The Python Notebooks were created under the following conda environment:
 
 ```
-conda create --name graphmining python=3.7.9 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet
+conda create --name graphmining python=3.7.9 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
 
 conda activate graphmining
 
