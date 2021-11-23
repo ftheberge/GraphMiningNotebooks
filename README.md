@@ -29,6 +29,9 @@ Chapter 6 notebook:
  * install node2vec from SNAP, see: https://snap.stanford.edu/node2vec/
  * GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings which is included in this repo (more details in the notebook)
 
+Chapter 7 notebook:
+ * This notebook requires the HyperNetX package; since version 1.2, our functions were merged in this package as a module; notebook https://github.com/ftheberge/GraphMiningNotebooks/blob/master/Python_Notebooks/Chapter_7_bis.ipynb takes advantage of this.
+ 
 Complementary material: 
  * install the graph2vec code from https://github.com/benedekrozemberczki/graph2vec
  * LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
