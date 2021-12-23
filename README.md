@@ -11,7 +11,7 @@ conda create --name graphmining python=3.7.9 numpy pandas jupyter matplotlib sci
 
 conda activate graphmining
 
-pip install python-igraph==0.8.2
+pip install igraph
 pip install plfit
 pip install partition-igraph
 pip install umap-learn
