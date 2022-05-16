@@ -30,7 +30,7 @@ Chapter 6 notebook:
  * GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings which is included in this repo (more details in the notebook)
 
 Chapter 7 notebook:
- * This notebook requires the HyperNetX package; since version 1.2, our functions were merged in this package as a module; notebook https://github.com/ftheberge/GraphMiningNotebooks/blob/master/Python_Notebooks/Chapter_7_bis.ipynb takes advantage of this.
+ * This notebook requires the HyperNetX package; since version 1.2, our functions were merged in this package as a module; notebook https://github.com/ftheberge/GraphMiningNotebooks/blob/master/Python_Notebooks/Chapter_7.ipynb takes advantage of this.
  
 Complementary material: 
  * install the graph2vec code; we used the version as of May 2020 in the book: https://github.com/benedekrozemberczki/graph2vec/tree/be7fc2ac44706f9664b6636cea5df477e8a6bb06
