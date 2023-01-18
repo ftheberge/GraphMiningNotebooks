@@ -1,13 +1,13 @@
 # Graph Mining Notebooks
 
-Notebooks and datasets to accompany the textbook "Mining Complex Networks" (https://www.ryerson.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge.
+Notebooks and datasets to accompany the textbook "Mining Complex Networks" (https://www.torontomu.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge.
 
 ## Software environment
 
 The Python Notebooks were created under the following conda environment:
 
 ```
-conda create --name graphmining python=3.7.9 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
+conda create --name graphmining python=3.9 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
 
 conda activate graphmining
 
