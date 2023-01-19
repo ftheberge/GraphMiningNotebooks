@@ -4,20 +4,23 @@ Notebooks and datasets to accompany the textbook "Mining Complex Networks" (http
 
 ## Software environment
 
-The Python Notebooks were created under the following conda environment:
+The notebooks in the **Python_Notebooks** directory were tested under the following conda environment (Python version 3.10.9, igraph version 0.10.3):
 
 ```
-conda create --name graphmining python=3.7 numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
+conda create --name graphmining numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
 
 conda activate graphmining
 
-pip install igraph==0.9.11
+pip install igraph
 pip install plfit
 pip install partition-igraph
 pip install umap-learn
 pip install --no-dependencies graphrole
-pip install hypernetx
+pip install celluloid
+pip install --no-dependencies hypernetx
 ```
+
+Previous version of the Notebooks tested under Python 3.7 and igraph 0.9 can be found in directory **Python37_Notebooks**.
 
 Other software used:
 
