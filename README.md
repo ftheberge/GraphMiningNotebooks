@@ -4,7 +4,7 @@ Notebooks and datasets to accompany the textbook "Mining Complex Networks" (http
 
 ## Software environment
 
-The notebooks in the **Python_Notebooks** directory were tested under the following conda environment (Python version 3.10.9, igraph version 0.10.3):
+The notebooks in the **Python_Notebooks** directory were tested under the following conda environment (Python version 3.10.9, igraph version 0.10.4):
 
 ```
 conda create --name graphmining numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
