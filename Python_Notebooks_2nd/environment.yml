@@ -12,3 +12,5 @@ dependencies:
   - pip
   - pip:
     - igraph==0.11.3
+    - powerlaw==1.5
+    
