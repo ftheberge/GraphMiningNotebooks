@@ -9,6 +9,7 @@ dependencies:
   - statsmodels=0.14.0
   - pycairo=1.23.0
   - cython=3.0.6
+  - seaborn=0.12.2
   - pip
   - pip:
     - igraph==0.11.3
