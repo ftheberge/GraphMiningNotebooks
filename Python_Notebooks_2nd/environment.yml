@@ -18,4 +18,6 @@ dependencies:
     - partition-igraph==0.0.7
     - fastnode2vec==0.0.7
     - hypernetx==2.1.3
-    - vectorizers==0.2 
+    - vectorizers==0.2
+    - scikit-network==0.31.0
+
