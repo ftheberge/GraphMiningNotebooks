@@ -21,4 +21,6 @@ dependencies:
     - vectorizers==0.2
     - scikit-network==0.31.0
     - hdbscan==0.8.33
+    - xgi==0.8.4
+    
 
