@@ -1,26 +1,28 @@
 name: complexnetworks
 dependencies:
-  - python=3.11.5
-  - numpy=1.26.2
-  - pandas=2.1.4  
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=2.2.2 
   - jupyter=1.0.0
-  - matplotlib=3.8.0
-  - scikit-learn=1.2.2
-  - statsmodels=0.14.0
+  - matplotlib=3.8.4
+  - scikit-learn=1.4.2
+  - statsmodels=0.14.2
   - pycairo=1.23.0
-  - cython=3.0.6
-  - seaborn=0.12.2
-  - pip
+  - seaborn=0.13.2
+  - pip=24.0
   - pip:
-    - igraph==0.11.3
+    - igraph==0.11.5
     - powerlaw==1.5
-    - umap-learn==0.5.5
+    - umap-learn==0.5.6
     - partition-igraph==0.0.7
     - fastnode2vec==0.0.7
-    - hypernetx==2.1.3
-    - vectorizers==0.2
-    - scikit-network==0.31.0
-    - hdbscan==0.8.33
-    - xgi==0.8.4
+    - hypernetx==2.3.5
+    - vectorizers==0.2.1
+    - scikit-network==0.32.1
+    - hdbscan==0.8.37
+    - xgi==0.8.6
+    - plotly==5.22.0
+    - arrow==1.3.0
+    - xgboost==2.0.3
     
-
+    
