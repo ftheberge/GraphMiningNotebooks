@@ -17,7 +17,7 @@ dependencies:
     - partition-igraph==0.0.7
     - gensim==4.3.3
     - fastnode2vec==0.0.7
-    - hypernetx==2.3.5
+    - hypernetx>=2.3.5
     - vectorizers==0.2.1
     - scikit-network==0.32.1
     - hdbscan==0.8.37
