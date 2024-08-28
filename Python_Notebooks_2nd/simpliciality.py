@@ -1,29 +1,48 @@
 import numpy as np
 import random
 from math import comb
-from itertools import combinations as combs
 from collections import Counter
+from collections.abc import Sequence
+import operator
+from functools import reduce 
+from itertools import combinations as combs
 
-### Landry's measures
-#These three functions are all from "The simpliciality of higher order networks"
-#simplicial_fraction
-#edit_simpliciality
-#face_edit_simpliciality
+################################
+## max subsets from: https://stackoverflow.com/questions/14106121
+def is_power_of_two(n):
+    return (n & (n - 1)) == 0
+def max_subsets(E):
+    '''return list of max subsets of length 3+'''
+    if len(E) <= 1:
+        return list(E)
+    if not isinstance(E, Sequence):
+        E = list(E)
+    incidence = {}
+    for i, s in enumerate(E):
+        for element in s:
+            try:
+                incidence[element] |= 1 << i
+            except KeyError:
+                incidence[element] = 1 << i
+    out = [s for s in E if s and len(s)>2 and 
+           is_power_of_two(reduce(operator.and_, (incidence[x] for x in s)))]
+    return out
 ################################
 
 
-#Get the simplicial fraction of a hypergraph
-#The simplicial fraction is the fraction of edges (of size at least 3) that satisfy downward closure
+################################
+### Landry's measures
+# These three functions are all from "The simpliciality of higher order networks":
+# simplicial_fraction, edit_simpliciality and face_edit_simpliciality
+################################
 
-#V: vertices
-#E: edges
 
-def simplicial_fraction(V,E):
-    #They ignore 1-edges in their paper, so we throw away 1-edges here
+def simplicial_fraction_jordan(V,E):
+    # They ignore 1-edges in their paper, so we throw away 1-edges here
     E = [set(e) for e in E if len(e) > 1]
     edge_sets = get_edge_sets(V,E)
 
-    #For each edge, we add 1 to bottom and add 1 to top if the edge is a simplicial complex
+    # For each edge, we add 1 to bottom and add 1 to top if the edge is a simplicial complex
     top = 0
     bottom = 0
     for e in E:
@@ -45,32 +64,57 @@ def simplicial_fraction(V,E):
                 
     return top/bottom
             
+def get_simplicial_fraction(V,E):
+    '''
+    Get the simplicial fraction of a hypergraph
+    The simplicial fraction is the fraction of edges (of size at least 3) that satisfy downward closure
+    V: vertices
+    E: edges
+    '''
+    # They ignore 1-edges in their paper, so we throw away 1-edges here
+    E = [set(e) for e in E if len(e) > 1]
+    edge_sets = get_edge_sets(V,E)
 
-#Get the edit simpliciality of a hypergraph
-#The edit simpliciality is |E|/|C| where C is the smallest simplicial complex containing E
+    # For each edge, we add 1 to bottom and add 1 to top if the edge is a simplicial complex
+    top = 0
+    bottom = 0
+    for e in E:
+        # In their paper, the only check edges of size at least 3
+        if len(e) > 2:
+            bottom += 1
+            # relevant_edges are edges containing v for each v in e
+            relevant_edges = set()
+            for v in e:
+                relevant_edges = relevant_edges.union([tuple(sorted(edge)) for edge in edge_sets[v]])
+            # po_set is the simplicial closure of e. We don't include sets of size 0 or 1, nor do we include e
+            po_set = set()
+            for k in range(2,len(e)):
+                po_set = po_set.union([tuple(sorted(edge)) for edge in combs(e,k)])
 
-#V: vertices
-#E: edges
+            # Check if e is a simplicial complex
+            if (po_set <= relevant_edges):
+                top += 1                
+    return top/bottom
 
-def edit_simpliciality(V,E):
-    #They ignore 1-edges in their paper, so we throw away 1-edges here
+def edit_simpliciality_jordan(V,E,return_max=False):
+    # They ignore 1-edges in their paper, so we throw away 1-edges here
     E = [set(e) for e in E if len(e) > 1]    
 
-    #Finding the set of maximal edges of size at least 3
+    # Finding the set of maximal edges of size at least 3
     E_check = [e for e in E if len(e) > 2]
     edge_sets = get_edge_sets(V,E_check)
-    #We build a dictionary of e -> T/F
+    # We build a dictionary of e -> T/F
     is_max = {frozenset(sorted(e)) : True for e in E_check}
     for e in E_check:
-        #Some edges will point to false before they are hit in the loop
+        # Some edges will point to false before they are hit in the loop
         if is_max[frozenset(sorted(e))]:
-            #Any edge containing e will contain v for all v in e
-            #Hence, we find v in e with the fewest edges to check for edges containing e
+            # Any edge containing e will contain v for all v in e
+            # Hence, we find v in e with the fewest edges to check for edges containing e
             v = next(iter(e))
             for u in e:
                 if len(edge_sets[u]) < len(edge_sets[v]):
                     v = u
-            #For each edge, we check containment in both directions and update accordingly
+            # For each edge, we check containment in both directions and update accordingly
             for edge in edge_sets[v]:
                 if set(e) < set(edge):
                     is_max[frozenset(sorted(e))] == False
@@ -80,24 +124,42 @@ def edit_simpliciality(V,E):
             
     E_max = [e for e in E_check if is_max[frozenset(sorted(e))]]
 
-    #C is the set of edges in the simplicial closure.
-    #We start by adding all 2-edges, then add all PoSets of maximal edges
+    # C is the set of edges in the simplicial closure.
+    # We start by adding all 2-edges, then add all PoSets of maximal edges
     C = {frozenset(sorted(e)) for e in E if len(e) == 2}
     for e in E_max:
         for k in range(2,len(e)+1):
             C = C.union({frozenset(sorted(edge)) for edge in combs(e,k)})
-
-    return len(E)/len(C)
+    if return_max:
+        return E_max, len(E)/len(C)
+    else:
+        return len(E)/len(C)
      
+def get_edit_simpliciality(V,E,return_max=False):
+    '''
+    Get the edit simpliciality of a hypergraph
+    The edit simpliciality is |E|/|C| where C is the smallest simplicial complex containing E
+    V: vertices
+    E: edges
+    '''
+    # throw away 1-edges
+    E = [set(e) for e in E if len(e) > 1]    
+    # Finding the set of maximal edges of size at least 3
+    E_max = max_subsets(E)
+    C = [tuple(sorted(e)) for e in E if len(e)==2]
+    for e in E_max:
+        for k in range(2,len(e)+1):
+            C.extend([tuple(sorted(x)) for x in combs(e,k)])
+    C = set(C)
+    if return_max:
+        return E_max, len(E)/len(C)
+    else:
+        return len(E)/len(C)
+            
 
-#Get the face edit simpliciality of a hypergraph
-#The face edit simpliciality is the average edit simpliciality across the maximal edges
-
-#V: vertices
-#E: edges
-
-def face_edit_simpliciality(V,E):
-    #They ignore 1-edges in their paper, so we throw away 1-edges here
+#### Warning - E_max returns too many sets ####
+def face_edit_simpliciality_jordan(V,E,return_max=False):
+    # They ignore 1-edges in their paper, so we throw away 1-edges here
     E = [set(e) for e in E if len(e) > 1]    
 
     #Finding the set of maximal edges of size at least 3
@@ -123,7 +185,7 @@ def face_edit_simpliciality(V,E):
                     is_max[frozenset(sorted(edge))] == False
             
     E_max = [e for e in E_check if is_max[frozenset(sorted(e))]]
-
+    
     #We iterate over E_max and compute the edit simpliciality of each maximal face
     FES = 0
     #We now need edge_sets for all edges
@@ -141,18 +203,52 @@ def face_edit_simpliciality(V,E):
             relevant_edges = relevant_edges.union({frozenset(sorted(edge)) for edge in edge_sets[v]})
         #E_face is the set of edges in C_face that are also in the graph
         E_face = C_face.intersection(relevant_edges)
-        FES += len(E_face)/len(C_face)
-        
+        FES += len(E_face)/len(C_face)        
     FES = FES/len(E_max)
-    return FES
+    if return_max:
+        return E_max, FES
+    else:
+        return FES
+
+def get_face_edit_simpliciality(V,E,return_max=False):
+    '''
+    Get the face edit simpliciality of a hypergraph
+    The face edit simpliciality is the average edit simpliciality across the maximal edges
+    V: vertices
+    E: edges
+    '''
+    # Throw away 1-edges here
+    E = [set(e) for e in E if len(e) > 1]    
+    E_max = max_subsets(E)
+    # We iterate over E_max and compute the edit simpliciality of each maximal face
+    FES = 0
+    # We now need edge_sets for all edges
+    edge_sets = get_edge_sets(V,E)
+
+    # We loop through E_max and compute the edit simpliciality for each edge
+    for e in E_max:
+        C_face = [tuple(sorted(e))]
+        for k in range(2,len(e)):
+            C_face.extend([tuple(sorted(x)) for x in combs(e,k)])
+        C_face = set(C_face)                       
+        # Before computing E_face, we restrict to only edges containing v for each v in e
+        relevant_edges = {tuple(sorted(e))}
+        for v in e:
+            relevant_edges = relevant_edges.union({tuple(sorted(edge)) for edge in edge_sets[v]})
+        # E_face is the set of edges in C_face that are also in the graph
+        E_face = C_face.intersection(relevant_edges)
+        FES += len(E_face)/len(C_face)       
+    FES = FES/len(E_max)
+    if return_max:
+        return E_max, FES
+    else:
+        return FES
 
 ######################################################################################################
 
-
-
 # Get a dictionary of vertex -> edges containing vertex.
 def get_edge_sets(V,E):
-    #Initalize edge_set
+    # Initalize edge_set
     edge_sets = {v : [] for v in V}
     #iterate through E and update edge_sets
     for e in E:
@@ -171,7 +267,7 @@ def get_simplicial_pairs(vertices, edges, as_matrix=False, edge_order=False):
     edge_sets = get_edge_sets(V,E)
     degrees = {v : len(edge_sets[v]) for v in V}
 
-    #Initializing
+    # Initializing
     if as_matrix:
         M = np.zeros((max_size,max_size))
     elif edge_order:
@@ -179,21 +275,21 @@ def get_simplicial_pairs(vertices, edges, as_matrix=False, edge_order=False):
     else:
         M = 0
 
-    #We iterate through E and compute the number of pairs with e as the smaller edge
+    # We iterate through E and compute the number of pairs with e as the smaller edge
     for e in E:
-        #Any edge f containing e will contain v for all v in e
-        #Thus, we find v with the smallest degree for our search
+        # Any edge f containing e will contain v for all v in e
+        # Thus, we find v with the smallest degree for our search
         v = list(e)[0]
         for u in e:
             if degrees[u] < degrees[v]:
                 v = u
         relevant_edges = edge_sets[v]
-        #Now we check for f containing e
-        #If order matters, we compare the index of e and f in edge_sets[v]
-        #edge_sets[v] preserves edge order, so all is good
+        # Now we check for f containing e
+        # If order matters, we compare the index of e and f in edge_sets[v]
+        # edge_sets[v] preserves edge order, so all is good
         if edge_order:
-            #Note: we assume there are no multi-edges in E
-            #This is precisely why we can't order edges in the Chung-Lu model
+            # Note: we assume there are no multi-edges in E
+            # This is precisely why we can't order edges in the Chung-Lu model
             i = relevant_edges.index(e)
             for j,f in enumerate(relevant_edges):
                 if e<f:
@@ -208,7 +304,7 @@ def get_simplicial_pairs(vertices, edges, as_matrix=False, edge_order=False):
                         else:
                             M[1] += 1
 
-        #If order doesn't matter, we just count
+        # If order doesn't matter, we just count
         else:
             for f in relevant_edges:
                 if e<f:
@@ -219,7 +315,14 @@ def get_simplicial_pairs(vertices, edges, as_matrix=False, edge_order=False):
 
     return M
 
-def get_simplicial_measure(V,E,samples = 1, edge_order = False, multisets = True):
+def get_simplicial_ratio(V,E,samples = 1, edge_order = False, multisets = False):
+    '''
+    Get the simplicial ratio of a hypergraph:
+        number of simplicial pairs divided by the expected number of pairs
+    Expected number estimated via sampling Chung-Lu hypergraphs (with or without repeated edges)
+    V: vertices
+    E: edges
+    '''
     top = get_simplicial_pairs(V,E,edge_order=edge_order)
     bottom = 0
     for i in range(samples):
@@ -233,13 +336,16 @@ def get_simplicial_measure(V,E,samples = 1, edge_order = False, multisets = True
         bottom = (1+bottom)/samples
         return top/bottom
 
-# Get the simplicial_matrix of a graph
-# The simplicial matrix is the cell-wise ratio of simplicial pairs between a real graph and a re-sampling (Chung-Lu model)
-# V: vertices
-# E: edges
-# samples: the number of times we re-sample, set to 1 by default
-def get_simplicial_matrix(V,E,samples = 1, edge_order = False, multisets=True):
-    #We first get the matrix of simplicial pairs
+
+def get_simplicial_matrix(V,E,samples = 1, edge_order = False, multisets=False):
+    '''
+    Get the simplicial ratio of a hypergraph for each pair of edge sizes:
+        number of simplicial pairs divided by the expected number of pairs
+    Expected number estimated via sampling Chung-Lu hypergraphs (with or without repeated edges)
+    V: vertices
+    E: edges
+    '''
+    # We first get the matrix of simplicial pairs
     M_top = get_simplicial_pairs(V,E,as_matrix=True,edge_order=edge_order)
 
     #Next, we get the same matrix for the re-sample, depending on the model specified
@@ -262,7 +368,7 @@ def get_simplicial_matrix(V,E,samples = 1, edge_order = False, multisets=True):
 
     return M_top/M_bottom
 
-def chung_lu(vertices,m,degrees = None, multisets = True):
+def chung_lu(vertices,m,degrees = None, multisets = False):
     # If V is a number, we convert to a list
     if type(vertices) is int:
         V = list(range(vertices))
