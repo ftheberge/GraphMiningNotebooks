@@ -135,7 +135,7 @@ def edit_simpliciality_jordan(V,E,return_max=False):
     else:
         return len(E)/len(C)
      
-def get_edit_simpliciality(V,E,return_max=False):
+def get_edit_simpliciality(V, E, exclude_self=False, return_max=False):
     '''
     Get the edit simpliciality of a hypergraph
     The edit simpliciality is |E|/|C| where C is the smallest simplicial complex containing E
@@ -151,10 +151,14 @@ def get_edit_simpliciality(V,E,return_max=False):
         for k in range(2,len(e)+1):
             C.extend([tuple(sorted(x)) for x in combs(e,k)])
     C = set(C)
-    if return_max:
-        return E_max, len(E)/len(C)
+    if exclude_self:
+        r = (len(E)-len(E_max))/(len(C)-len(E_max))
     else:
-        return len(E)/len(C)
+        r = len(E)/len(C)
+    if return_max:
+        return E_max, r
+    else:
+        return r
             
 
 #### Warning - E_max returns too many sets ####
@@ -210,7 +214,7 @@ def face_edit_simpliciality_jordan(V,E,return_max=False):
     else:
         return FES
 
-def get_face_edit_simpliciality(V,E,return_max=False):
+def get_face_edit_simpliciality(V, E, exclude_self=False, return_max=False):
     '''
     Get the face edit simpliciality of a hypergraph
     The face edit simpliciality is the average edit simpliciality across the maximal edges
@@ -237,7 +241,10 @@ def get_face_edit_simpliciality(V,E,return_max=False):
             relevant_edges = relevant_edges.union({tuple(sorted(edge)) for edge in edge_sets[v]})
         # E_face is the set of edges in C_face that are also in the graph
         E_face = C_face.intersection(relevant_edges)
-        FES += len(E_face)/len(C_face)       
+        if exclude_self:
+            FES += (len(E_face)-1)/(len(C_face)-1)
+        else:
+            FES += len(E_face)/len(C_face)       
     FES = FES/len(E_max)
     if return_max:
         return E_max, FES
@@ -326,7 +333,7 @@ def get_simplicial_ratio(V,E,samples = 1, edge_order = False, multisets = False)
     top = get_simplicial_pairs(V,E,edge_order=edge_order)
     bottom = 0
     for i in range(samples):
-        E_cl = chung_lu(V,E,multisets=multisets)
+        E_cl = chung_lu(V, E, multisets=multisets)
         bottom += get_simplicial_pairs(V,E_cl,edge_order=False)
 
     if edge_order:
@@ -368,14 +375,14 @@ def get_simplicial_matrix(V,E,samples = 1, edge_order = False, multisets=False):
 
     return M_top/M_bottom
 
-def chung_lu(vertices,m,degrees = None, multisets = False):
+def chung_lu(vertices, m, degrees = None, multisets = False):
     # If V is a number, we convert to a list
     if type(vertices) is int:
         V = list(range(vertices))
     else:
         V = list(vertices.copy())
-
-    #If m is a list of edges, we get the degrees and the number of edges of each size
+    
+    # If m is a list of edges, we get the degrees and the number of edges of each size
     if (type(m[0]) is set) or (type(m[0]) is list):
         degrees = get_degrees(V,m.copy())
 
@@ -388,8 +395,8 @@ def chung_lu(vertices,m,degrees = None, multisets = False):
         for k in sizes:
             m[k-1] = len(edge_dict[k])
 
-    #If degrees is a list, we convert to a dictionary
-    #Note: If V was given as a set, and degrees as a list of degrees, then the degrees might get shuffled
+    # If degrees is a list, we convert to a dictionary
+    # Note: If V was given as a set, and degrees as a list of degrees, then the degrees might get shuffled
     if type(degrees) is list:
         degrees = dict(zip(V,degrees))
     L = get_volume(V,degrees)
@@ -440,18 +447,18 @@ def get_degrees(V,E):
     return degrees
 
 def get_volume(S,X):
-    #initialize volume
+    # initialize volume
     volume = 0
 
-    #get degrees if X is a list of edges
+    # get degrees if X is a list of edges
     if type(X) is list:
-        #We need all vertices in the graph to call get_degrees
+        # We need all vertices in the graph to call get_degrees
         V = S.copy()
         for e in X:
             V.update(e)
         X = get_degrees(V,X)
 
-    #iterate through V and sum degrees
+    # iterate through V and sum degrees
     for v in S:
         volume += X[v]
 
