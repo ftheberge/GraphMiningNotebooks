@@ -36,34 +36,6 @@ def max_subsets(E):
 # simplicial_fraction, edit_simpliciality and face_edit_simpliciality
 ################################
 
-
-def simplicial_fraction_jordan(V,E):
-    # They ignore 1-edges in their paper, so we throw away 1-edges here
-    E = [set(e) for e in E if len(e) > 1]
-    edge_sets = get_edge_sets(V,E)
-
-    # For each edge, we add 1 to bottom and add 1 to top if the edge is a simplicial complex
-    top = 0
-    bottom = 0
-    for e in E:
-        #In their paper, the only check edges of size at least 3
-        if len(e) > 2:
-            bottom += 1
-            #relevant_edges are edges containing v for each v in e
-            relevant_edges = set()
-            for v in e:
-                relevant_edges = relevant_edges.union([frozenset(sorted(edge)) for edge in edge_sets[v]])
-            #po_set is the simplicial closure of e. We don't include sets of size 0 or 1, nor do we include e
-            po_set = set()
-            for k in range(2,len(e)):
-                po_set = po_set.union([frozenset(sorted(edge)) for edge in combs(e,k)])
-
-            #Check if e is a simplicial complex
-            if (po_set <= relevant_edges):
-                top += 1
-                
-    return top/bottom
-            
 def get_simplicial_fraction(V,E):
     '''
     Get the simplicial fraction of a hypergraph
@@ -96,45 +68,6 @@ def get_simplicial_fraction(V,E):
                 top += 1                
     return top/bottom
 
-def edit_simpliciality_jordan(V,E,return_max=False):
-    # They ignore 1-edges in their paper, so we throw away 1-edges here
-    E = [set(e) for e in E if len(e) > 1]    
-
-    # Finding the set of maximal edges of size at least 3
-    E_check = [e for e in E if len(e) > 2]
-    edge_sets = get_edge_sets(V,E_check)
-    # We build a dictionary of e -> T/F
-    is_max = {frozenset(sorted(e)) : True for e in E_check}
-    for e in E_check:
-        # Some edges will point to false before they are hit in the loop
-        if is_max[frozenset(sorted(e))]:
-            # Any edge containing e will contain v for all v in e
-            # Hence, we find v in e with the fewest edges to check for edges containing e
-            v = next(iter(e))
-            for u in e:
-                if len(edge_sets[u]) < len(edge_sets[v]):
-                    v = u
-            # For each edge, we check containment in both directions and update accordingly
-            for edge in edge_sets[v]:
-                if set(e) < set(edge):
-                    is_max[frozenset(sorted(e))] == False
-                    break
-                elif set(edge) < set(e):
-                    is_max[frozenset(sorted(edge))] == False
-            
-    E_max = [e for e in E_check if is_max[frozenset(sorted(e))]]
-
-    # C is the set of edges in the simplicial closure.
-    # We start by adding all 2-edges, then add all PoSets of maximal edges
-    C = {frozenset(sorted(e)) for e in E if len(e) == 2}
-    for e in E_max:
-        for k in range(2,len(e)+1):
-            C = C.union({frozenset(sorted(edge)) for edge in combs(e,k)})
-    if return_max:
-        return E_max, len(E)/len(C)
-    else:
-        return len(E)/len(C)
-     
 def get_edit_simpliciality(V, E, exclude_self=False, return_max=False):
     '''
     Get the edit simpliciality of a hypergraph
@@ -159,60 +92,6 @@ def get_edit_simpliciality(V, E, exclude_self=False, return_max=False):
         return E_max, r
     else:
         return r
-            
-
-#### Warning - E_max returns too many sets ####
-def face_edit_simpliciality_jordan(V,E,return_max=False):
-    # They ignore 1-edges in their paper, so we throw away 1-edges here
-    E = [set(e) for e in E if len(e) > 1]    
-
-    #Finding the set of maximal edges of size at least 3
-    E_check = [e for e in E if len(e) > 2]
-    edge_sets = get_edge_sets(V,E_check)
-    #We build a dictionary of e -> T/F
-    is_max = {frozenset(sorted(e)) : True for e in E_check}
-    for e in E_check:
-        #Some edges will point to false before they are hit in the loop
-        if is_max[frozenset(sorted(e))]:
-            #Any edge containing e will contain v for all v in e
-            #Hence, we find v in e with the fewest edges to check for edges containing e
-            v = next(iter(e))
-            for u in e:
-                if len(edge_sets[u]) < len(edge_sets[v]):
-                    v = u
-            #For each edge, we check containment in both directions and update accordingly
-            for edge in edge_sets[v]:
-                if set(e) < set(edge):
-                    is_max[frozenset(sorted(e))] == False
-                    break
-                elif set(edge) < set(e):
-                    is_max[frozenset(sorted(edge))] == False
-            
-    E_max = [e for e in E_check if is_max[frozenset(sorted(e))]]
-    
-    #We iterate over E_max and compute the edit simpliciality of each maximal face
-    FES = 0
-    #We now need edge_sets for all edges
-    edge_sets = get_edge_sets(V,E)
-
-    #We loop through E_max and compute the edit simpliciality for each edge
-    for e in E_max:
-        #C_face is the simplicial closure of e
-        C_face = {frozenset(sorted(e))}
-        for k in range(2,len(e)):
-            C_face = C_face.union({frozenset(sorted(edge)) for edge in combs(e,k)})
-        #Before computing E_face, we restrict to only edges containing v for each v in e
-        relevant_edges = {frozenset(sorted(e))}
-        for v in e:
-            relevant_edges = relevant_edges.union({frozenset(sorted(edge)) for edge in edge_sets[v]})
-        #E_face is the set of edges in C_face that are also in the graph
-        E_face = C_face.intersection(relevant_edges)
-        FES += len(E_face)/len(C_face)        
-    FES = FES/len(E_max)
-    if return_max:
-        return E_max, FES
-    else:
-        return FES
 
 def get_face_edit_simpliciality(V, E, exclude_self=False, return_max=False):
     '''
