@@ -1,0 +1,154 @@
+RESULTS FOR LANDRY's AND OUR RATIO (2-ways):
+
+* All results agree with Landry's; for FES, excluding the max face.
+
+Results for contact-primary-school :
+n = 242 
+m = 12704 
+<s> = 2.4188444584382873
+SF: 0.8470540758676351 
+ES: 0.9175213057922866 
+FES with max face: 0.9506445570463496 
+FES excluding max face: 0.9372632240823688
+simplicial ratio with CL model: 2.700526468460238
+simplicial ratio with estimation: 2.7146791484268467
+
+Results for contact-high-school :
+n = 327 
+m = 7818 
+<s> = 2.3269378357636223
+SF: 0.8064655172413793 
+ES: 0.9270722162931341 
+FES with max face: 0.9393321276864209 
+FES excluding max face: 0.9230435574995467
+simplicial ratio with CL model: 6.5749169649746175
+simplicial ratio with estimation: 6.516760322905618
+
+Results for hospital-lyon :
+n = 75 
+m = 1824 
+<s> = 2.4270833333333335
+SF: 0.9121338912133892 
+ES: 0.9544740973312402 
+FES with max face: 0.9774536866642135 
+FES excluding max face: 0.9718947368421053
+simplicial ratio with CL model: 0.9459274371403484
+simplicial ratio with estimation: 0.9656569856027547
+
+Results for email-enron :
+n = 143 
+m = 1442 
+<s> = 2.9743411927877945
+SF: 0.3127962085308057 
+ES: 0.052244483895511035 
+FES with max face: 0.5338142787783793 
+FES excluding max face: 0.49822878699508083
+simplicial ratio with CL model: 4.838098458247894
+simplicial ratio with estimation: 4.975047511896164
+
+Results for email-eu :
+n = 967 
+m = 23729 
+<s> = 3.1225083231488897
+SF: 0.3170553935860058 
+ES: 0.04924735333611438 
+FES with max face: 0.5543567609816569 
+FES excluding max face: 0.5217400302065685
+simplicial ratio with CL model: 5.132381450938179
+simplicial ratio with estimation: 5.163298257193811
+
+Results for diseasome :
+n = 516 
+m = 314 
+<s> = 3.0
+SF: 0.0 
+ES: 0.04538228067639832 
+FES with max face: 0.19501913364541046 
+FES excluding max face: 0.04065214786039885
+simplicial ratio with CL model: 6.20891161431702
+simplicial ratio with estimation: 6.362553020384037
+
+Results for disgenenet :
+n = 1982 
+m = 760 
+<s> = 5.1381578947368425
+SF: 0.0 
+ES: 0.004779934338796714 
+FES with max face: 0.08263170659682115 
+FES excluding max face: 0.007864665990617565
+simplicial ratio with CL model: 27.73393461104848
+simplicial ratio with estimation: 28.03176493679903
+
+Results for ndc-substances :
+n = 2740 
+m = 4754 
+<s> = 5.155658392932268
+SF: 0.020143487858719646 
+ES: 0.005277033139634914 
+FES with max face: 0.11846931111425694 
+FES excluding max face: 0.07047994455353014
+simplicial ratio with CL model: 4.053868182060379
+simplicial ratio with estimation: 4.226896624346674
+
+Results for congress-bills :
+n = 1715 
+m = 58788 
+<s> = 4.947659386269307
+SF: 0.02909811429970835 
+ES: 0.005814213391956787 
+FES with max face: 0.1444892414830705 
+FES excluding max face: 0.10059626292667583
+simplicial ratio with CL model: 4.409838782144914
+simplicial ratio with estimation: 4.4610556838603435
+
+Results for tags-ask-ubuntu :
+n = 3021 
+m = 145053 
+<s> = 3.42722315291652
+SF: 0.15149467561903948 
+ES: 0.24870932730705064 
+FES with max face: 0.5251377594076069 
+FES excluding max face: 0.4576852328034268
+simplicial ratio with CL model: 0.6655877250928363
+simplicial ratio with estimation: 0.698201849227786
+
+
+SR RESULTS FOR TEMPORAL HYPERGRAPHS (2-ways)
+
+* SR, SR (up), SR (down) respectively
+
+contact-primary-school
+simplicial ratio (CL): 2.7019228203143766 4.74447142102518 0.654214484368673
+simplicial ratios (estimate): 2.7273665096684905 4.793726727778336 0.6610062915586452
+
+contact-high-school
+simplicial ratio (CL): 6.553400061061647 10.991534173033244 2.1276068552550074
+simplicial ratios (estimate): 6.50905490909669 10.906887777670455 2.1112220405229256
+
+hospital-lyon
+simplicial ratio (CL): 0.9429207600535587 1.7228503971456803 0.16821175068453884
+simplicial ratios (estimate): 0.944196337154723 1.7204183757968785 0.16797429851256737
+
+email-enron
+simplicial ratio (CL): 4.871424609587927 6.855382613770078 2.8910084089887214
+simplicial ratios (estimate): 4.9080740748348 6.904448139039297 2.9117000106303035
+
+email-eu
+simplicial ratio (CL): 5.132514837922883 7.679424688976842 2.575633937415726
+simplicial ratios (estimate): 5.2594715285852285 7.877032590265377 2.64191046690508
+
+congress-bills
+simplicial ratio (CL): 4.408676655770777 5.1565584543541 3.636166691617646
+simplicial ratios (estimate): 4.518480941336808 5.299792888343074 3.737168994330542
+
+tags-ask-ubuntu
+simplicial ratio (CL): 0.6663542938063467 1.0508552912421913 0.2822831371893634
+simplicial ratios (estimate): 0.6986405677366707 1.1014162094873892 0.29586492598595227
+
+
+
+
+
+
+
+
