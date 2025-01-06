@@ -2,11 +2,17 @@
 
 Notebooks and datasets to accompany the textbook "Mining Complex Networks" (https://www.torontomu.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge.
 
-## Second edition
+# Second edition
 
-We are currently working on a second edition of this book. The corresponding notebooks for this new edition are located in the **Python_Notebooks_2nd** directory.
+We are currently working on a second edition of this book (as of January 2025). The corresponding notebooks for this new edition are currently located in the **Python_Notebooks_2nd** directory.
 There is also a **yml** file that can be used to build the conda environment via: *conda env create -f environment.yml*.
 The notebooks and yml files are subject to frequent updates.
+
+Tutorials for the Python notebooks can be found here: https://www.youtube.com/@MiningComplexNetworks
+
+# First edition
+
+The notes below refer to the first edition of the book and will be updated soon.
 
 ## Software environment
 
