@@ -25,5 +25,5 @@ dependencies:
     - plotly==5.22.0
     - arrow==1.3.0
     - xgboost==2.0.3
-    - abcd-graph==0.3.0
+    - abcd-graph==0.4.0
     - bayesian-optimization==1.5.1
