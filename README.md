@@ -2,54 +2,21 @@
 
 Notebooks and datasets to accompany the textbook "Mining Complex Networks" (https://www.torontomu.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge.
 
-# Second edition
-
-We are currently working on a second edition of this book (as of January 2025). The corresponding notebooks for this new edition are currently located in the **Python_Notebooks_2nd** directory.
+We are currently working on a **second edition** of this book (as of June 2025). The corresponding notebooks for this new edition are currently located in the **Python_Notebooks_Second_Edition** directory.
 There is also a **yml** file that can be used to build the conda environment via: *conda env create -f environment.yml*.
 The notebooks and yml files are subject to frequent updates.
 
 Tutorials for the Python notebooks can be found here: https://www.youtube.com/@MiningComplexNetworks
 
-# First edition
-
-The notes below refer to the first edition of the book and will be updated soon.
-
-## Software environment
-
-The notebooks in the **Python_Notebooks** directory were tested under the following conda environment (Python version 3.10.9, igraph version 0.10.4):
-
-```
-conda create --name graphmining numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
-
-conda activate graphmining
-
-pip install igraph
-pip install plfit
-pip install partition-igraph
-pip install umap-learn
-pip install --no-dependencies graphrole
-pip install celluloid
-pip install --no-dependencies hypernetx
-```
-
-Previous version of the Notebooks tested under Python 3.7 and igraph 0.9 can be found in directory **Python37_Notebooks**.
-
-Other software used:
-
-Chapter 5 notebook: 
- * install the julia language from https://julialang.org
- * ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
+## Other software used:
 
 Chapter 6 notebook: 
- * install node2vec from SNAP, see: https://snap.stanford.edu/node2vec/
- * GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings which is included in this repo (more details in the notebook)
+ * install the **Julia** language and package **CGE** from: https://github.com/KrainskiL/CGE.jl
 
 Complementary material: 
- * install the graph2vec code; we used the version as of May 2020 in the book: https://github.com/benedekrozemberczki/graph2vec/tree/be7fc2ac44706f9664b6636cea5df477e8a6bb06
- * LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
- * overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
- * pip install omega-index-py3==0.3
- * conda install -c conda-forge folium
+ * Chapter 8: install and compile the overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
+ * Chapter 9: install the **NEExT** framework and depdendencies, details in the notebook
+ * Chapter 11: install the **folium** package, details in the notebook
  
 ## References - datasets
 
@@ -92,22 +59,8 @@ Ref: graph2vec: Learning distributed representations of graphs. Narayanan, Annam
 * node2vec is included in SNAP and can be obtained at: https://snap.stanford.edu/node2vec/   
 Ref: node2vec: Scalable Feature Learning for Networks. A. Grover, J. Leskovec. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD), 2016.
 
-* plfit code is avaialble from: https://pypi.org/project/plfit/  or https://github.com/keflavich/plfit
-Ref: A. Clauset, C.R. Shalizi, and M.E.J. Newman, "Power-law distributions in empirical data" SIAM Review 51(4), 661-703 (2009). (arXiv:0706.1062, doi:10.1137/070710111)
-
-* graphrole code is available from: https://pypi.org/project/graphrole/  
-Ref (ReFeX): Keith  Henderson, Brian  Gallagher, Lei Li, Leman Akoglu, Tina  Eliassi-Rad, Hanghang  Tong, Christos Faloutsos, It's who you know: graph mining using recursive structural features, Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining, August 2011 Pages 663–671 https://doi.org/10.1145/2020408.2020512   
-Ref (RolX): Keith  Henderson, Brian  Gallagher, Tina  Eliassi-Rad, Hanghang  Tong, Sugato  Basu, Leman Akoglu, Danai  Koutra, Christos  Faloutsos, Lei Li, RolX: structural role extraction and mining in large graphs, Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining, August 2012, Pages 1231–1239 https://doi.org/10.1145/2339530.2339723
-
 * UMAP code is available at: https://pypi.org/project/umap-learn/  
 Ref: McInnes, L., Healy, J. UMAP: uniform manifold approximation and projection for dimension reduction. Preprint at https://arxiv.org/abs/1802.03426 (2018).
-
-* omega measure: https://pypi.org/project/omega-index-py3/  
-Ref: Collins LM, Dent CW. Omega: A General Formulation of the Rand Index of Cluster Recovery Suitable for Non-disjoint Solutions. Multivariate Behav Res. 1988 Apr 1;23(2):231-42. doi: 10.1207/s15327906mbr2302_6. PMID: 26764947.
-
-* LFR with overlapping communities: https://sites.google.com/site/andrealancichinetti/files/  
-Ref: A. Lancichinetti, S. Fortunato, Benchmarks for testing community detection algorithms on directed and weighted graphs with overlapping communities
-Phys. Rev. E 80, 016118 (2009)
 
 * Normalized Mutual Information (NMI) measure for sets of overlapping clusters: https://github.com/aaronmcdaid/Overlapping-NMI  
 Ref: Normalized Mutual Information to evaluate overlapping community finding algorithms" by Aaron F. McDaid, Derek Greene, Neil Hurley http://arxiv.org/abs/1110.2515
@@ -116,3 +69,21 @@ Ref: Normalized Mutual Information to evaluate overlapping community finding alg
 
 * HyperNetX (HNX) can be found at: https://github.com/pnnl/HyperNetX including several good tutorial notebooks.
  
+### First edition
+
+The notebooks in the **Python_Notebooks_First_Edition** directory were tested under the following conda environment (Python version 3.10.9, igraph version 0.10.4).
+It is no longer maintained.
+
+```
+conda create --name graphmining numpy pandas jupyter matplotlib scikit-learn statsmodels seaborn cairo pycairo bokeh cython gensim numba datashader holoviews colorcet networkx
+
+conda activate graphmining
+
+pip install igraph
+pip install plfit
+pip install partition-igraph
+pip install umap-learn
+pip install --no-dependencies graphrole
+pip install celluloid
+pip install --no-dependencies hypernetx
+```
