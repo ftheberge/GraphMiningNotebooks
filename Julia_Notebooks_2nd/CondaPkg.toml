@@ -1,0 +1,16 @@
+
+[pip.deps]
+fastjsonschema = ""
+matplotlib = ""
+xgi = ""
+hypernetx = ""
+scikit-learn = ""
+networkx = ""
+bayesian-optimization = "==1.5.1"
+seaborn = ""
+partition-igraph = ""
+cairocffi = ""
+numpy = ""
+umap-learn = ""
+[deps]
+pycairo = ""
