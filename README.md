@@ -11,10 +11,10 @@ Tutorials for the Python notebooks can be found here: https://www.youtube.com/@M
 ## Other software used:
 
 Chapter 6 notebook: 
- * install the **Julia** language and package **CGE** from: https://github.com/KrainskiL/CGE.jl
+ * install the **Julia** language from https://julialang.org and package **CGE** from: https://github.com/KrainskiL/CGE.jl
 
 Complementary material: 
- * Chapter 8: install and compile the overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
+ * Chapter 8: install and compile the overlapping NMI measure code from: https://github.com/aaronmcdaid/Overlapping-NMI
  * Chapter 9: install the **NEExT** framework and depdendencies, details in the notebook
  * Chapter 11: install the **folium** package, details in the notebook
  
@@ -87,3 +87,27 @@ pip install --no-dependencies graphrole
 pip install celluloid
 pip install --no-dependencies hypernetx
 ```
+
+Other software used in the first edition:
+
+Chapter 5 notebook: 
+ * install the julia language from https://julialang.org
+ * ABCD generator from https://github.com/bkamins/ABCDGraphGenerator.jl (more details in the notebook)
+
+Chapter 6 notebook: 
+ * install node2vec from SNAP, see: https://snap.stanford.edu/node2vec/
+ * GED code from https://github.com/ftheberge/Comparing_Graph_Embeddings which is included in this repo (more details in the notebook)
+
+Complementary material: 
+ * install the graph2vec code; we used the version as of May 2020 in the book: https://github.com/benedekrozemberczki/graph2vec/tree/be7fc2ac44706f9664b
+6636cea5df477e8a6bb06
+ * LFR benchmark with overlapping communities, file binary_networks.tar, from: https://sites.google.com/site/andrealancichinetti/files
+ * overlapping NMI measure from: https://github.com/aaronmcdaid/Overlapping-NMI
+ * pip install omega-index-py3==0.3
+ * conda install -c conda-forge folium
+ 
+
+
+
+
+
