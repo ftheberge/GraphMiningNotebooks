@@ -20,7 +20,7 @@ Complementary material:
  
 ## References - datasets
 
-* **ABCD** dataset was generated using the Julia code found at: https://github.com/bkamins/ABCDGraphGenerator.jl
+* **ABCD** datasets are generated using the Julia code found at: https://github.com/bkamins/ABCDGraphGenerator.jl or the Python code https://pypi.org/project/abcd-graph/. For Hypergraphs, we used h-ABCD: https://github.com/bkamins/ABCDHypergraphGenerator.jl
 
 * **Actors** dataset is from the accompanying material to the book: "Complex Networks: Principles, Methods and Applications", V. Latora, V. Nicosia, G. Russo, Cambridge University Press (2017). ISBN: 9781107103184 The data can be downloaded from: http://www.complex-networks.net. It was built from the Internet Movie Database (IMDb, www.imdb.com) and was first studied in: D.J. Watts and S.H. Strogatz, "Collective dynamics of 'small-world' networks", Nature 393 (1998), 440-442.
 
@@ -39,6 +39,8 @@ Complementary material:
 
 * The source graph for the **Reno** road network example was prepared using the map taken from: https://github.com/pszufe/OpenStreetMapX.jl/blob/master/test/data/reno_east3.osm
 
+* The **Twitch** dataset can be downloaded from https://snap.stanford.edu/data/twitch_gamers.html.
+  
 * **Words** free-association data was built from the database: http://w3.usf.edu/FreeAssociation/ Reference: Nelson, D. L., McEvoy, C. L., & Schreiber, T. A. (1998). The University of South Florida word association, rhyme, and word fragment norms.  
 An XML version is available here: http://rali.iro.umontreal.ca/rali/?q=en/USF-FAN  
 Details for using this database are provided in: Douglas L. Nelson, Cathy L. McEvoy and Thomas A. Schreiber, "The University of South Florida free association, rhyme, and word fragment norms", Behavior Research Methods, Instruments, & Computers 2004, 36 (3), 402–407 https://link.springer.com/content/pdf/10.3758/BF03195588.pdf  
