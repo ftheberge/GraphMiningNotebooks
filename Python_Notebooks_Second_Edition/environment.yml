@@ -15,7 +15,7 @@ dependencies:
     - igraph==0.11.9
     - powerlaw==1.5
     - umap-learn==0.5.8
-    - partition-igraph==0.0.7
+    - partition-igraph==0.0.8
     - fastnode2vec==0.0.7
     - hypernetx==2.4.0
     - vectorizers==0.2.2

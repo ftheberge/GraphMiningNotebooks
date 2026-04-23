@@ -1,0 +1,16 @@
+name: neext
+dependencies:
+  - python==3.14.4
+  - numpy==2.4.4
+  - pandas==3.0.2
+  - jupyter==1.1.1
+  - matplotlib==3.10.8
+  - scikit-learn==1.8.0
+  - pycairo==1.29.0
+  - pip==26.0.1
+  - pip:
+    - igraph==1.0.0
+    - umap-learn==0.5.12
+    - partition-igraph==0.0.8
+    - neext==0.2.11
+    
