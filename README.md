@@ -2,18 +2,18 @@
 
 Notebooks and datasets to accompany the textbook "Mining Complex Networks" (https://www.torontomu.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge.
 
-We are currently working on a **second edition** of this book (as of June 2025). The corresponding notebooks for this new edition are currently located in the **Python_Notebooks_Second_Edition** directory.
-There is also a **yml** file that can be used to build the conda environment via: *conda env create -f environment.yml*.
-The notebooks and yml files are subject to frequent updates.
+There is now a **second edition** of this book (as of May 2026). The corresponding notebooks for this new edition are located in the **Python_Notebooks_Second_Edition** directory. Older notebooks for the previous editions are in the **Python_Notebooks_First_Edition** directory (no longer supported).
 
-Tutorials for the Python notebooks can be found here: https://www.youtube.com/@MiningComplexNetworks
+There is a **yml** file that can be used to build the conda environment via: *conda env create -f environment.yml*.
+
+Tutorials for the Python notebooks can be found here: https://www.youtube.com/@MiningComplexNetworks. Those were recorded in 2025 and differ slightly from the latest notebook versions (update to follow).
 
 ## Other software used:
 
 Chapter 6 notebook: 
  * install the **Julia** language from https://julialang.org and package **CGE** from: https://github.com/KrainskiL/CGE.jl
 
-Complementary material: 
+Additional material: 
  * Chapter 8: install and compile the overlapping NMI measure code from: https://github.com/aaronmcdaid/Overlapping-NMI
  * Chapter 9: install the **NEExT** framework and depdendencies, details in the notebook
  * Chapter 11: install the **folium** package, details in the notebook
