@@ -13,5 +13,5 @@ dependencies:
     - igraph==1.0.0
     - umap-learn==0.5.7
     - partition-igraph==0.0.8
-    - neext==0.2.11
+    - neext==0.3.10
     
