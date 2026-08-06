@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import hypernetx as hnx
-import hypernetx.algorithms.hypergraph_modularity as hmod
+#import hypernetx.algorithms.hypergraph_modularity as hmod
 from collections import defaultdict
 import copy
 import math
@@ -53,7 +53,7 @@ class hLouvain:
         self.hmod_tau = hmod_tau
         self.resolution = resolution
         self.random_seed = random_seed
-        self.G = hmod.two_section(HG)
+        self.G = hnx.two_section(HG)
         
         # setting the order of nodes based on their apperance in edges
         self.h_nodes = []
@@ -145,7 +145,7 @@ class hLouvain:
 
         ## Edge Contribution
         HG_id = self.HG.incidence_dict
-        d = hmod.part2dict(A)
+        d = hnx.part2dict(A)
         L = [[d[i] for i in HG_id[x]] for x in HG_id]
 
         ## all same weight
@@ -263,7 +263,7 @@ class hLouvain:
         hyper = self.h_modularity(A, hmod_tau, resolution) 
         
         # Calculation of modularity of 2-section graph (based on iGraph)
-        d = hmod.part2dict(A)
+        d = hnx.part2dict(A)
         partition  = [d[i] for i in self.h_nodes]
         twosect = self.G.modularity(partition,weights='weight',resolution=resolution)  # weighting is enabled
         
@@ -587,9 +587,9 @@ class hLouvain:
         '''
         Function for single hLouvain pass (maximization phase with the node collapsing at the end)
         '''
-        DL = hmod.part2dict(L)
+        DL = hnx.part2dict(L)
         A1 = L[:]  
-        D = hmod.part2dict(A1) #current partition as a dictionary (D will change during the phase)   
+        D = hnx.part2dict(A1) #current partition as a dictionary (D will change during the phase)   
         self.modified = False
 
         if self.back == True:
@@ -827,7 +827,7 @@ class hLouvain:
         
         VolV = np.sum(VolA)
         
-        dct_A = hmod.part2dict(A)
+        dct_A = hnx.part2dict(A)
 
         while(True):
             
@@ -881,13 +881,13 @@ class hLouvain:
                     VolV = np.sum(VolA)
                 else:
                     dct_A[v] = dct_A_v
-            new_qH = self.h_modularity(hmod.dict2part(dct_A), tau,resolution)    
+            new_qH = self.h_modularity(hnx.dict2part(dct_A), tau,resolution)    
             #print(n_moves,'moves, new qH:',new_qH)
             if (new_qH-qH) < delta:
                 break
             else:
                 qH = new_qH
-        return hmod.dict2part(dct_A), new_qH
+        return hnx.dict2part(dct_A), new_qH
 
     ## THIS ASSUMES WEIGHTED H
     def _last_step_weighted(self, A, tau = "infinity", resolution = 1, delta=0.01):
@@ -904,7 +904,7 @@ class hLouvain:
                     wdc[d][c] = (c/d)**tau if c > d / 2 else 0
 
 
-        d = hmod.part2dict(A)
+        d = hnx.part2dict(A)
 
         ## initialize
         ## this is the bottleneck
@@ -919,7 +919,7 @@ class hLouvain:
             for v in self.HG.edges[e]:
                 VolA[d[v]] += w 
         VolV = np.sum(VolA)
-        dct_A = hmod.part2dict(A)
+        dct_A = hnx.part2dict(A)
 
         ## loop
         while(True):
@@ -986,13 +986,13 @@ class hLouvain:
                 else:
                     dct_A[v] = dct_A_v
 
-            new_qH = self.h_modularity(hmod.dict2part(dct_A), tau,resolution)
+            new_qH = self.h_modularity(hnx.dict2part(dct_A), tau,resolution)
     #     print(n_moves,'moves, new qH:',new_qH)
             if (new_qH-qH) < delta:
                 break
             else:
                 qH = new_qH
-        return hmod.dict2part(dct_A), new_qH
+        return hnx.dict2part(dct_A), new_qH
 
     def last_step(self, A,  tau = "infinity", resolution = 1, delta=0.01):
 

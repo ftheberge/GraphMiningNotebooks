@@ -16,7 +16,7 @@ for ξ in [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.6
     d_max = 50
     d_max_iter = 1000
     @info "Expected value of degree: $(ABCDGraphGenerator.get_ev(τ₁, d_min, d_max))"
-    degs = ABCDGraphGenerator.sample_degrees(τ₁, d_min, d_max, n + nout, d_max_iter)
+    degs = ABCDGraphGenerator.sample_degrees_oo(τ₁, d_min, d_max, n + nout, d_max_iter)
     open(io -> foreach(d -> println(io, d), degs), "degreefile_$(ξ)_$(η).txt", "w")
 
     τ₂ = 1.5
@@ -24,12 +24,12 @@ for ξ in [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.6
     c_max = 200
     c_max_iter = 1000
     @info "Expected value of community size: $(ABCDGraphGenerator.get_ev(τ₂, c_min, c_max))"
-    coms = ABCDGraphGenerator.sample_communities(τ₂, ceil(Int, c_min / η), floor(Int, c_max / η), n, c_max_iter)
+    coms = ABCDGraphGenerator.sample_communities_oo(τ₂, ceil(Int, c_min / η), floor(Int, c_max / η), n, c_max_iter)
     @assert sum(coms) == n
     pushfirst!(coms, nout)
 
-    p = ABCDGraphGenerator.ABCDParams(degs, coms, ξ, η, d, ρ)
-    edges, clusters = ABCDGraphGenerator.gen_graph(p)
+    p = ABCDGraphGenerator.ABCDParamsOO(degs, coms, ξ, η, d, ρ)
+    edges, clusters = ABCDGraphGenerator.gen_graph_oo(p)
     open("networkfile_$(ξ)_$(η)_$(seed).txt", "w") do io
         for (a, b) in sort!(collect(edges))
             println(io, a, "\t", b)
