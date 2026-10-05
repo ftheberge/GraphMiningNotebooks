@@ -1,6 +1,6 @@
 name: complexnetworks
 dependencies:
-  - python==3.14.6
+  - python>=3.13
   - numpy==2.4.6
   - pandas==3.0.3
   - jupyter==1.1.1
