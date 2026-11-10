@@ -1,0 +1,5 @@
+- test all notebooks on linux
+- test all notebooks of Mac
+- add info re. Julia installation and running
+- review chapter 6, can the interaction with Julia be made simpler?
+- YouTube videos chap 1-7
