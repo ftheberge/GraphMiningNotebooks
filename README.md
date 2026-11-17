@@ -1,21 +1,28 @@
 # Graph Mining Notebooks
 
-Notebooks and datasets to accompany the textbook "Mining Complex Networks" (https://www.torontomu.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge.
+Notebooks and datasets to accompany the **second edition** of textbook "Mining Complex Networks" (https://www.torontomu.ca/mining-complex-networks) by B. Kaminski, P. Pralat and F. Théberge. The textbook is available online.
 
-There is now a **second edition** of this book (as of May 2026). The corresponding notebooks for this new edition are located in the **Python_Notebooks_Second_Edition** directory. Older notebooks for the previous editions are in the **Python_Notebooks_First_Edition** directory (no longer supported).
+The corresponding notebooks for this new edition (May 2026) are located in the **Python_Notebooks_Second_Edition** directory. 
+Older notebooks for the previous edition are in the **Python_Notebooks_First_Edition** directory, but are no longer supported.
 
 There is a **yml** file that can be used to build the conda environment via: *conda env create -f environment.yml*.
 
-Tutorials for the Python notebooks can be found here: https://www.youtube.com/@MiningComplexNetworks. Those were recorded in 2025 and differ slightly from the latest notebook versions (update to follow).
+Tutorials for the Python notebooks can be found here: https://www.youtube.com/@MiningComplexNetworks. 
+Those were recorded in 2025 and differ slightly from the latest notebook versions and should be updated shortly.
 
 ## Other software used:
 
 Chapter 6 notebook: 
- * install the **Julia** language from https://julialang.org and package **CGE** from: https://github.com/KrainskiL/CGE.jl
+ * install the **Julia** language from https://julialang.org
+ * Install package **CGE.jl** by:
+     * running Julia's REPL (Julia’s interactive command-line environment)
+     * switching to package manager by pressing ]
+     * running: ```add https://github.com/KrainskiL/CGE.jl```
+     * NB: In order to use the CLI for the package you should locate CGE_CLI.jl file ; a copy is included in the **CGE/** directory of this repository.
 
 Additional material: 
  * Chapter 8: install and compile the overlapping NMI measure code from: https://github.com/aaronmcdaid/Overlapping-NMI
- * Chapter 9: install the **NEExT** framework and depdendencies, details in the notebook
+ * Chapter 9: install the **NEExT** framework and depdendencies, details in the notebook ; also we use a different conda environment for this notebook: *environment_neext.yml*
  * Chapter 11: install the **folium** package, details in the notebook
  
 ## References - datasets
@@ -71,7 +78,7 @@ Ref: Normalized Mutual Information to evaluate overlapping community finding alg
 
 * HyperNetX (HNX) can be found at: https://github.com/pnnl/HyperNetX including several good tutorial notebooks.
  
-### First edition
+### First edition (no longer maintained)
 
 The notebooks in the **Python_Notebooks_First_Edition** directory were tested under the following conda environment (Python version 3.10.9, igraph version 0.10.4).
 It is no longer maintained.
